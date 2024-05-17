@@ -22,11 +22,13 @@ function fibonacci(n) {
   let prev = 0;
   let curr = 1;
   for (let i = 2; i <= n; i++) {
-    let next = prev + curr;
-    prev = curr;
-    curr = next;
-    console.log(curr); //1 2 3 5 8 13 21 34 55
+    curr = prev + curr; // 0 + 1 =>1  // 1 + 1 =>2 // 1 + 2 =>3  // 2 + 3 =>5 // 3 + 5 =>8  // 5 + 8 =>13  curr=13
+    prev = curr - prev; // 1 - 0 =>1  // 2 - 1 =>1 // 3 - 1 =>2  // 5 - 2 =>3 // 8 - 3 =>5  // 13 - 5 =>8  prev=8
   }
-  return curr;
+  return {
+    prev,
+    curr,
+  };
 }
-console.log(fibonacci(10)); //55
+console.log(fibonacci(7)); // { prev: 8, curr: 13 }
+console.log("fibonacci of given number is :", fibonacci(7).curr); //13
