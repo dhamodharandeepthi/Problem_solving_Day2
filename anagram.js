@@ -4,42 +4,31 @@ An anagram of a string is another string that contains the same characters, only
 eg: str1 = "listen"
     str2 = "silent"
 */
-str1 = "listen";
-str2 = "silent ";
-function isAnagram(str1, str2) {
-  let obj = {};
-  for (let ind = 0; ind < str1.length; ind++) {
-    if (str1[ind] >= "a" && str1[ind] <= "z") {
-      if (obj[str1[ind]]) {
-        obj[str1[ind]]++; // obj[str1[ind]] +=1
-      } else {
-        obj[str1[ind]] = 1;
-      }
-    } else {
-      return false;
-    }
-  }
-  for (let ind = 0; ind < str2.length; ind++) {
-    if (str2[ind] >= "a" && str2[ind] <= "z") {
-      if (obj[str2[ind]]) {
-        obj[str2[ind]]--; // obj[str1[ind]] -=1
-        if (obj[str2[ind]] == 0) {
-          delete obj[str2[ind]];
-        }
-      } else {
-        return false;
-      }
-    }
-  }
-  console.log(obj);
-  return Object.keys(obj).length == 0;
-}
+let string1 = "listen";
+let string2 = "silent";
+console.log(string1.charCodeAt(0)); //108 //L ASCII
+console.log(string2.charCodeAt(0)); //115 //L ASCII
+let arr = Array.from({ length: 256 }, () => 0);
+// console.log(...arr); // 256 index filled with value 0
+console.log(arr[string1.charCodeAt(0)]++); //108:1 =>Debugging output
+console.log(arr[string2.charCodeAt(0)]--); //115:-1 =>Debugging output
 
-console.log(isAnagram(str1, str2));
+console.log(arr[string1.charCodeAt(1)]++); //105:1
+console.log(arr[string2.charCodeAt(1)]--); //105:-1 //0
 
-/*
-key codes:
- * str1[ind] >= "a" && str1[ind] <= "z") // check charecter a to z
- * each character in str1 and str2 are created as key in emoty obj and asign value 1 if it character comes again value incremented by 1 and compare with another str in another loop there value decremented
- * finally if obj empty means return true otherwise false
-*/
+console.log(arr[string1.charCodeAt(2)]++); //115:1
+console.log(arr[string2.charCodeAt(2)]--); //108:-1
+
+console.log(arr[string1.charCodeAt(3)]++); //116:1
+console.log(arr[string2.charCodeAt(3)]--); //101:-1
+
+console.log(arr[string1.charCodeAt(4)]++); //101:1
+console.log(arr[string2.charCodeAt(4)]--); //110:-1
+
+console.log(arr[string1.charCodeAt(5)]++); //110:1
+console.log(arr[string2.charCodeAt(5)]--); //116:-1
+
+let filterArray = arr.filter((value) => value != 0);
+console.log(filterArray); //[]
+console.log(filterArray.length); //0
+console.log(filterArray.length == 0); //true
