@@ -12,4 +12,21 @@ F(n)=F(n-1)+F(n-2)
 //iterative approach
 Inorder to get the next value in the sequence, we have add last two elements in the sequence
 
+prev+curr=next;
+
 */
+
+function fibonacci(n) {
+  if (n == 0) return 0;
+  if (n == 1) return 1;
+  let prev = 0;
+  let curr = 1;
+  for (let i = 2; i <= n; i++) {
+    let next = prev + curr;
+    prev = curr;
+    curr = next;
+    console.log(curr); //1 2 3 5 8 13 21 34 55
+  }
+  return curr;
+}
+console.log(fibonacci(10)); //55
