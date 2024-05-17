@@ -4,31 +4,24 @@ An anagram of a string is another string that contains the same characters, only
 eg: str1 = "listen"
     str2 = "silent"
 */
-let string1 = "listen";
-let string2 = "silent";
-console.log(string1.charCodeAt(0)); //108 //L ASCII
-console.log(string2.charCodeAt(0)); //115 //L ASCII
-let arr = Array.from({ length: 256 }, () => 0);
-// console.log(...arr); // 256 index filled with value 0
-console.log(arr[string1.charCodeAt(0)]++); //108:1 =>Debugging output
-console.log(arr[string2.charCodeAt(0)]--); //115:-1 =>Debugging output
+let str1 = "listen";
+let str2 = "silent";
 
-console.log(arr[string1.charCodeAt(1)]++); //105:1
-console.log(arr[string2.charCodeAt(1)]--); //105:-1 //0
+function isAnagram(str1, str2) {
+  let arr = Array.from({ length: 256 }, () => 0);
+  // console.log(...arr);
+  if (str1.length != str2.length) return false;
+  for (let ind = 0; ind < str1.length; ind++) {
+    arr[str1.charCodeAt(ind)]++;
+    arr[str2.charCodeAt(ind)]--;
+  }
+  return arr.filter((val) => val != 0).length == 0;
+}
+console.log(isAnagram(str1, str2)); //true
 
-console.log(arr[string1.charCodeAt(2)]++); //115:1
-console.log(arr[string2.charCodeAt(2)]--); //108:-1
-
-console.log(arr[string1.charCodeAt(3)]++); //116:1
-console.log(arr[string2.charCodeAt(3)]--); //101:-1
-
-console.log(arr[string1.charCodeAt(4)]++); //101:1
-console.log(arr[string2.charCodeAt(4)]--); //110:-1
-
-console.log(arr[string1.charCodeAt(5)]++); //110:1
-console.log(arr[string2.charCodeAt(5)]--); //116:-1
-
-let filterArray = arr.filter((value) => value != 0);
-console.log(filterArray); //[]
-console.log(filterArray.length); //0
-console.log(filterArray.length == 0); //true
+/*
+here space need for arr storing 256 character
+1byte=8bit
+2^8=256
+256 character occupy in 1 byte
+*/
