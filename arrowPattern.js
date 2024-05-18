@@ -18,7 +18,8 @@ for (let row = 0; row < n; row++) {
     if (col == row || col >= n - 1 - row) arr.push("*");
     else arr.push(" ");
   }
-  //   console.log(...arr); or
+  0;
+  //   console.log(...arr); // or
   console.log(arr.join(" "));
 }
 
@@ -72,34 +73,34 @@ col>=n-1-row
    col=1=>  1>=5-1-0 false  " " 
    col=2=>  2>=5-1-0 false  " "
    col=3=>  3>=5-1-0 false  " "
-   col=4=>  3>=5-1-0 true   "*" added in array
+   col=4=>  4>=5-1-0 true   "*" added in array
 
 2nd iteration row=1
    col=0 => 0>=5-1-1 false  " " 
    col=1=>  1>=5-1-1 false  " " 
    col=2=>  2>=5-1-1 false  " "
    col=3=>  3>=5-1-1 true   "*" added in array
-   col=4=>  3>=5-1-1 true   "*" added in array
+   col=4=>  4>=5-1-1 true   "*" added in array
 
 3rd iteration row=2
    col=0 => 0>=5-1-2 false  " " 
    col=1=>  1>=5-1-2 false  " " 
    col=2=>  2>=5-1-2 true   "*" added in array
    col=3=>  3>=5-1-2 true   "*" added in array
-   col=4=>  3>=5-1-2 true   "*" added in array
+   col=4=>  4>=5-1-2 true   "*" added in array
 
 4th iteration row=3
    col=0 => 0>=5-1-3 false  " " 
    col=1=>  1>=5-1-3 true   "*" added in array
    col=2=>  2>=5-1-3 true   "*" added in array
    col=3=>  3>=5-1-3 true   "*" added in array
-   col=4=>  3>=5-1-3 true   "*" added in array
+   col=4=>  4>=5-1-3 true   "*" added in array
 
 5th iteration row=4
    col=0 => 0>=5-1-3 true   "*" added in array
    col=1=>  1>=5-1-3 true   "*" added in array
    col=2=>  2>=5-1-3 true   "*" added in array
    col=3=>  3>=5-1-3 true   "*" added in array
-   col=4=>  3>=5-1-3 true   "*" added in array
+   col=4=>  4>=5-1-3 true   "*" added in array
 
 */
